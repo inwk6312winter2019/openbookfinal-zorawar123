@@ -1,24 +1,12 @@
-﻿# import requests library
-import requests
-
-#import json library
-import json
-
-# put the ip address or dns of your apic-em controller in this url
-#url = 'https://sandboxapic.cisco.com/api/v1/ticket'
-url='https://devnetapi.cisco.com/sandbox/apic_em/api/v1/ticket'
-
-
-
-#the username and password to access the APIC-EM Controller
-payload = {"username":"devnetuser","password":"Cisco123!"}
-
-
-#Content type must be included in the header
-header = {"content-type": "application/json"}
-
-#Performs a POST on the specified url.
-response= requests.post(url,data=json.dumps(payload), headers=header, verify=False)
-
-# print the json that is returned
-print(response.text)
+def fetch_data():
+  r = requests.get()
+  requests.ConnectionError:
+  r = requests.get(FALLBACK_MTG_JSON_URL)
+  with closing(r), zipfile.ZipFile(io.BytesIO(r.content)) as archive:
+  unzipped_files = archive.infolist()
+    if len(unzipped_files) != 1:
+      raise RuntimeError("Found an unexpected number of files in the MTGJSON archive.")
+      data = archive.read(archive.infolist()[0])
+      decoded_data = data.decode('utf-8')
+      sets_data = json.loads(decoded_data)
+      return(sets_data)

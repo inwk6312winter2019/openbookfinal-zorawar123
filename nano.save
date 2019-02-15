@@ -1,0 +1,16 @@
+tent-Type" : "application/json", "x-api-key" : self.api_key,
+                   "authorization" : "Bearer " + self.access_token}
+
+        r = None
+
+        if http_method is PyCurlVerbs.POST:
+            r = requests.post(url, data=json.dumps(data), headers=headers)
+        elif http_method is PyCurlVerbs.DELETE:
+            r = requests.delete(url, headers=headers)
+        elif http_method is PyCurlVerbs.PUT:
+            r = requests.put(url, data=json.dumps(data), headers=headers)
+        elif http_method is PyCurlVerbs.GET:
+            r = requests.get(url, headers=headers)
+
+        return r 
+
